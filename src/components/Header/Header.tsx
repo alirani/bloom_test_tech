@@ -18,9 +18,9 @@ interface HeaderProps {
   navItems: NavLink[]
 }
 
-const getNavItems = (navItems: NavLink[]) => {
+const getNavItems = (navItems: NavLink[], centered?: boolean) => {
   return (
-    <ul>
+    <ul className={centered ? styles.centeredList : ''}>
       {navItems.map((navItem) => (
         <li key={navItem.label}>
           {navItem.button ? (
@@ -56,7 +56,8 @@ const Header = (props: HeaderProps) => {
   const { navItems } = props
 
   const [opened, { open, close }] = useDisclosure()
-
+  const centered = true
+  
   return (
     <header className={styles.header}>
       <BloomIcon />
@@ -74,7 +75,7 @@ const Header = (props: HeaderProps) => {
           onClose={close}
           title={<BloomIcon />}
         >
-          {getNavItems(navItems)}
+          {getNavItems(navItems, centered)}
         </Drawer>
       </nav>
     </header>

@@ -30,7 +30,8 @@
   @media (min-width: 64.0625rem) {
     display: none;
   }
-  & > ul {
-    align-items: center;
-  }
+}
+
+.centeredList {
+  text-align: center;
 }
