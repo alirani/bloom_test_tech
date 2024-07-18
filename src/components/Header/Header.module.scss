@@ -25,6 +25,12 @@
   }
 }
 
-.logo {
-  max-width: 92px;
+.mobNav {
+  display: block;
+  @media (min-width: 64.0625rem) {
+    display: none;
+  }
+  & > ul {
+    align-items: center;
+  }
 }

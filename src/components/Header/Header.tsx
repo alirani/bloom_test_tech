@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import BloomIcon from '../Icon/Bloom'
 import styles from './Header.module.scss'
-import { Burger, Button, NavLink } from '@mantine/core'
+import { Burger, Button, Drawer, NavLink } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import { IconBellFilled } from '@tabler/icons-react'
 
@@ -18,56 +18,64 @@ interface HeaderProps {
   navItems: NavLink[]
 }
 
+const getNavItems = (navItems: NavLink[]) => {
+  return (
+    <ul>
+      {navItems.map((navItem) => (
+        <li key={navItem.label}>
+          {navItem.button ? (
+            <Button
+              variant='filled'
+              color='#12564B'
+              radius='xl'
+              component={Link}
+              href={navItem.link}
+            >
+              {navItem.label}
+            </Button>
+          ) : (
+            <Button
+              variant='transparent'
+              color='#101010'
+              px={8}
+              radius='xl'
+              leftSection={navItem.icon ? <IconBellFilled color='#CDEBE7' /> : null}
+              component={Link}
+              href={navItem.link}
+            >
+              {navItem.label}
+            </Button>
+          )}
+        </li>
+      ))}
+    </ul>
+  )
+}
+
 const Header = (props: HeaderProps) => {
   const { navItems } = props
 
-  const [opened, { toggle }] = useDisclosure()
+  const [opened, { open, close }] = useDisclosure()
 
   return (
     <header className={styles.header}>
-      <BloomIcon className={styles.logo} />
+      <BloomIcon />
       <Burger
         className={styles.icon}
         opened={opened}
-        onClick={toggle}
-        aria-label='Toggle navigation'
+        onClick={open}
+        aria-label='Open navigation'
       />
       <nav className={styles.navBar}>
-        <ul>
-          {navItems.map((navItem) => (
-            <li key={navItem.label}>
-              {navItem.button ? (
-                <Button
-                  variant='filled'
-                  color='#12564B'
-                  radius='xl'
-                  component={Link}
-                  href={navItem.link}
-                >
-                  {navItem.label}
-                </Button>
-              ) : (
-                <Button
-                  variant='transparent'
-                  color='#101010'
-                  px={8}
-                  radius='xl'
-                  leftSection={
-                    navItem.icon ? (
-                      <IconBellFilled
-                        color='#CDEBE7'
-                      />
-                    ) : null
-                  }
-                  component={Link}
-                  href={navItem.link}
-                >
-                  {navItem.label}
-                </Button>
-              )}
-            </li>
-          ))}
-        </ul>
+        {getNavItems(navItems)}
+        <Drawer
+          className={styles.mobNav}
+          opened={opened}
+          onClose={close}
+          title={<BloomIcon />}
+        >
+          {getNavItems(navItems)}
+        </Drawer>
       </nav>
     </header>
   )
