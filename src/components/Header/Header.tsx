@@ -63,6 +63,7 @@ const Header = (props: HeaderProps) => {
       <BloomIcon />
       <Burger
         className={styles.icon}
+        color={'#1bceb5'}
         opened={opened}
         onClick={open}
         aria-label='Open navigation'
