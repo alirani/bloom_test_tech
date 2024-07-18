@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 const navigationItems = [
   {link: '/', label: 'Je recrute !'},
-  {link: '/', label: "Offres d'emploi"},
+  {link: '/search', label: "Offres d'emploi"},
   {link: '/', label: 'Mes offres', icon: true},
   {link: '/', label: 'Se connecter', button: true}
 ]
