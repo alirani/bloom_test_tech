@@ -1,0 +1,37 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin: 1rem 1rem 0 1rem;
+  background-color: white;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.icon {
+  min-width: 18px;
+  @media (min-width: 64.0625rem) {
+    display: none;
+  }
+}
+
+.navBar {
+  display: none;
+  @media (min-width: 64.0625rem) {
+    display: block;
+    & > ul {
+      display: flex;
+    }
+  }
+}
+
+.mobNav {
+  display: block;
+  @media (min-width: 64.0625rem) {
+    display: none;
+  }
+}
+
+.centeredList {
+  text-align: center;
+}
