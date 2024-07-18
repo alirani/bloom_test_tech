@@ -18,7 +18,7 @@ interface HeaderProps {
   navItems: NavLink[]
 }
 
-const getNavItems = (navItems: NavLink[], centered?: boolean) => {
+const getNavItems = (navItems: NavLink[], close: () => void, centered?: boolean) => {
   return (
     <ul className={centered ? styles.centeredList : ''}>
       {navItems.map((navItem) => (
@@ -30,6 +30,7 @@ const getNavItems = (navItems: NavLink[], centered?: boolean) => {
               radius='xl'
               component={Link}
               href={navItem.link}
+              onClick={close}
             >
               {navItem.label}
             </Button>
@@ -42,6 +43,7 @@ const getNavItems = (navItems: NavLink[], centered?: boolean) => {
               leftSection={navItem.icon ? <IconBellFilled color='#CDEBE7' /> : null}
               component={Link}
               href={navItem.link}
+              onClick={close}
             >
               {navItem.label}
             </Button>
@@ -69,14 +71,14 @@ const Header = (props: HeaderProps) => {
         aria-label='Open navigation'
       />
       <nav className={styles.navBar}>
-        {getNavItems(navItems)}
+        {getNavItems(navItems, close)}
         <Drawer
           className={styles.mobNav}
           opened={opened}
           onClose={close}
           title={<BloomIcon />}
         >
-          {getNavItems(navItems, centered)}
+          {getNavItems(navItems, close, centered)}
         </Drawer>
       </nav>
     </header>
