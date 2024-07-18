@@ -1,0 +1,14 @@
+$breakpoint-sm: 18.75rem;
+$breakpoint-lg: 64.0625rem;
+
+@mixin media($size) {
+  @if $size == small {
+    @media (min-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $size == large {
+    @media (min-width: $breakpoint-lg) {
+      @content;
+    }
+  }
+}
