@@ -1,0 +1,77 @@
+@use "/src/styles/variables.scss" as *;
+
+.searchForm {
+  width: 100%;
+  background-color: white;
+  padding: 1rem;
+  & > h1 {
+    text-align: center;
+  }
+}
+
+.formInputs {
+  display: flex;
+  flex-direction: column;
+  @include media(large) {
+    flex-direction: row;
+  }
+}
+
+.img {
+  &Wrapper {
+    position: relative;
+    padding: 1rem 0;
+  }
+  &Desk {
+    display: none;
+    width: 100%;
+    max-width: 70rem;
+    height: auto;
+    margin: auto;
+    @include media(large) {
+      display: block;
+    }
+  }
+  &Mob {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 550px;
+    margin: auto;
+    @include media(large) {
+      display: none;
+    }
+  }
+}
+
+.highlightText {
+  background-image: url('/highlight_title.png');
+  background-size: 220px;
+  background-repeat: no-repeat;
+}
+
+.inputText {
+  padding: 0.5rem 0;
+  flex: 1;
+}
+
+.inputLocation {
+  padding: 0.5rem 0;
+  flex: 1;
+  @include media(large) {
+    max-width: 25%;
+  }
+}
+
+.submitButton {
+  min-width: 90px;
+  max-width: 15%;
+  margin: 0.5rem 0;
+  padding: 0.5rem 0;
+  flex: 1;
+  margin: auto;
+  border-radius: 2rem;
+  @include media(large) {
+    border-radius: 0 2rem 2rem 0;
+  }
+}

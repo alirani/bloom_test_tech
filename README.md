@@ -23,5 +23,14 @@ Some points :
 # During
 
 Some points :
+
+Header :
 - the Header is kinda tricky, for this test it's better to just put a margin and adjust other components around, as is, but for a prod project, I would ask the designer if he plans on adding pages where that margin isn't there, in that case, it would be a good idea to add a margin condition to the component.
 - Same for background in the figma it's defined in a block in absolute position, in reality, it's better to just attach that to the body and adjust the percentage accordingly to match desktop and mobile view. Here 50% seems ok.
+
+Search Form :
+- In mobile version, the figma doesn't have the "search" button and the localisation, which would be a question I would ask.
+- The different banners between mobile & desktop don't have the same aspect ratio, it can be done but add unnecessary complexity to the code
+
+API :
+- No param in Postman API Doc, so there is a need to filter data from the response the API gives us.
