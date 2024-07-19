@@ -50,6 +50,8 @@ async function getSearchJobData(title: string, location: string) {
   const res = await fetch('https://uat.bloom-alternance.fr/api/offers/public?page=1&limit=10')
   const rawJobs = await res.json()
   const jobs = jobsMapper(rawJobs.data)
+  const totalJobs = rawJobs.total
+  const pagesJobs = rawJobs.pages
 
   const filterJobs = jobs.filter((job) => {
     let filters = []
@@ -67,19 +69,19 @@ async function getSearchJobData(title: string, location: string) {
     }
   })
 
-  return filterJobs
+  return [filterJobs, totalJobs , pagesJobs]
 }
 
 export default async function SearchPage({ searchParams }: { searchParams: { title: string; location: string } }) {
   const { title, location } = searchParams
-  const jobData = await getSearchJobData(title, location)
+  const [jobData, totalJobs, totalPages] = await getSearchJobData(title, location)
   return (
     <main className={styles.main}>
       <SearchForm />
       <SearchResult
         jobs={jobData}
-        totalJobs={data.total}
-        totalPages={data.pages}
+        totalJobs={totalJobs}
+        totalPages={totalPages}
       />
     </main>
   )
