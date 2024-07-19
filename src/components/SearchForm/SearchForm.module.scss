@@ -1,9 +1,9 @@
 @use "/src/styles/variables.scss" as *;
 
 .searchForm {
-  width: 100%;
   background-color: white;
   padding: 1rem;
+  margin: 0 1rem;
   & > h1 {
     text-align: center;
   }

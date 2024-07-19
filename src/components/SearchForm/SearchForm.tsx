@@ -40,7 +40,7 @@ const SearchForm = () => {
               className={styles.imgDesk}
               component={NextImage}
               src={'/bannerDesk.png'}
-              alt='My image'
+              alt='Banner Image'
               width={0}
               height={0}
               sizes='100vw'
@@ -51,7 +51,7 @@ const SearchForm = () => {
               className={styles.imgMob}
               component={NextImage}
               src={'/bannerMob.jpg'}
-              alt='My image'
+              alt='Banner Image'
               width={0}
               height={0}
               sizes='100vw'

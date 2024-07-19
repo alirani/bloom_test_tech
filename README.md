@@ -4,13 +4,11 @@ I'll take a component driven route and just build each component contained in th
 
 component list :
 
-- [ ] Header 
-- [ ] Footer 
-- [ ] Search Results 
-- [ ] Search Form 
-- [ ] Hero  
-- [ ] Result Card 
-- [ ] Pagination 
+- [x] Header 
+- [x] Footer 
+- [x] Search Results 
+- [x] Search Form  
+- [x] Pagination 
 - [x] Icons
 
 The idea is to first build a mobile version and make it stretch into a desktop version.
@@ -34,3 +32,6 @@ Search Form :
 
 API :
 - No param in Postman API Doc, so there is a need to filter data from the response the API gives us.
+
+Search Results :
+- No indication if there is no results or an error
