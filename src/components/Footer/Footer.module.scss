@@ -1,0 +1,29 @@
+@use '/src/styles/variables.scss' as *;
+
+.footer {
+  padding: 2rem;
+  &Lists {
+    display: flex;
+    gap: 1rem;
+  }
+  &Header {
+    padding: 1rem 0;
+  }
+  &Container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    @include media(large) {
+      flex-direction: row;
+    }
+  }
+  &Copyright {
+    display: flex;
+    padding: 1rem;
+    flex-direction: column;
+    @include media(large) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+}

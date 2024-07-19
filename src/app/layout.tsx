@@ -4,6 +4,7 @@ import '@mantine/core/styles.css'
 import Header from '@/components/Header/Header'
 import './globals.css'
 import '@/styles/reset.scss'
+import Footer from '@/components/Footer/Footer'
 
 export const metadata: Metadata = {
   title: 'Bloom Technical Test',
@@ -11,10 +12,10 @@ export const metadata: Metadata = {
 }
 
 const navigationItems = [
-  {link: '/', label: 'Je recrute !'},
-  {link: '/search', label: "Offres d'emploi"},
-  {link: '/', label: 'Mes offres', icon: true},
-  {link: '/', label: 'Se connecter', button: true}
+  { link: '/', label: 'Je recrute !' },
+  { link: '/search', label: "Offres d'emploi" },
+  { link: '/', label: 'Mes offres', icon: true },
+  { link: '/', label: 'Se connecter', button: true }
 ]
 
 export default function RootLayout({
@@ -29,8 +30,9 @@ export default function RootLayout({
       </head>
       <body>
         <MantineProvider>
-          <Header navItems={navigationItems}/>
+          <Header navItems={navigationItems} />
           {children}
+          <Footer />
         </MantineProvider>
       </body>
     </html>
