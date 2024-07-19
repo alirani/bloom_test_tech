@@ -22,9 +22,6 @@ interface JobCardProps {
 const JobCard = (props: JobCardProps) => {
   const { company, title, type, location, createdSince, description } = props
 
-  const slicedDescription = description.slice(0,200)
-  const cardDescription = slicedDescription.slice(0, Math.min(slicedDescription.length, slicedDescription.lastIndexOf(' ')))
-
   return (
     <li className={styles.card}>
       <div className={styles.cardHeader}>
@@ -68,7 +65,7 @@ const JobCard = (props: JobCardProps) => {
         •
         <Text className={styles.txtLogo}><IconCalendarEvent/>{createdSince}</Text>
       </div>
-      <div className={styles.cardDescription} dangerouslySetInnerHTML={{ __html: cardDescription + '...' }}/>
+      <div className={styles.cardDescription} dangerouslySetInnerHTML={{ __html: description }}/>
     </li>
   )
 }
