@@ -1,0 +1,62 @@
+@use '/src/styles/variables.scss' as *;
+
+.resultContainer {
+  background-color: #fafafa;
+  width: 100%;
+  padding: 4rem 1rem;
+}
+
+.textContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.card {
+  background-color: white;
+  margin: 1rem;
+  border-radius: 0.5rem;
+  &Header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    gap: 0.5rem;
+  }
+  &Logo {
+    position: relative;
+  }
+  &Titles {
+    flex-grow: 0;
+    @include media(large) {
+      flex-grow: 1;
+    }
+  }
+  &Info {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    & > span {
+      background-color: #d6f4ee;
+    }
+  }
+  &Description {
+    height: 90px;
+    overflow: hidden;
+  }
+}
+
+.logo {
+  width: 60px;
+  height: auto;
+  margin: auto;
+}
+
+.txtLogo {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
